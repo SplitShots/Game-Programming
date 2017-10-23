@@ -28,11 +28,11 @@ public class WhiteCellController : MonoBehaviour {
         transform.position = new Vector2(newHorizontalPosition,transform.position.y);
         this._checkBounds();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        _reset();
-    }
+    //collision detection, once detected, reset position of cell, Could be used for powerups
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    _reset();
+    //}
 
     private void _reset()
     {

@@ -43,6 +43,8 @@ public class BackgroundController : MonoBehaviour {
             this._reset();
         }
     }
+
+
 }
 
 

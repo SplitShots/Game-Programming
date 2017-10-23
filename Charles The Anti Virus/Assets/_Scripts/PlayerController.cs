@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     //Public properties 
+    public GameController gameController;
+    //Borders
     public float LeftBoundary;
     public float RightBoundary;
     public float TopBoundary;
@@ -43,9 +45,22 @@ public class PlayerController : MonoBehaviour {
         {
             mousepositionY.y = this.BottomBoundary;
         }
-
-
         //every frame sets the player's position to the mouse position
         transform.position = mousepositionX + mousepositionY;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag =="WhiteBloodCell")
+        {
+            gameController.SetPoints(gameController.GetPoints() + 25, true);
+            Debug.Log("Collided with White Cell");           
+        }
+        if (collision.gameObject.tag == "Bacteria")
+        {
+            gameController.SetLifePoints(gameController.GetLifePoints() - 5, true);
+            Debug.Log("Collided with Bacteria");
+
+        }
     }
 }
